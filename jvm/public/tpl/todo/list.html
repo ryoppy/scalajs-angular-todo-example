@@ -1,0 +1,30 @@
+<div style="margin: 10px 0">
+  <a href="/#/todo/add" class="btn btn-primary">add todo</a>
+</div>
+
+<div ng-controller="app.ctrl.TodoCtrl as ctrl" ng-init="ctrl.list()">
+  <table class="table">
+    <tr>
+      <th></th>
+      <th></th>
+      <th>ID</th>
+      <th>内容</th>
+    </tr>
+    <tr ng-repeat="todo in ctrl.todos">
+      <td style="width:50px">
+        <button class="btn btn-default btn-xs" ng-click="ctrl.delete(todo.id)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </td>
+      <td style="width:50px">
+        <button class="btn btn-default btn-xs"
+                ng-click="ctrl.toggle(todo.id)"
+                ng-class="{disabled: todo.isDone}">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button>
+      </td>
+      <td ng-bind="todo.id"></td>
+      <td ng-bind="todo.body"></td>
+    </tr>
+  </table>
+</div>

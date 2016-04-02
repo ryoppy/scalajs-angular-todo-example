@@ -1,0 +1,10 @@
+<h3>Add TODO</h3>
+
+<div ng-controller="app.ctrl.TodoCtrl as ctrl">
+  <form action="/todo" method="post" ng-submit="ctrl.add($event)">
+    <div class="form-group">
+      <textarea name="body" ng-model="ctrl.body" class="form-control"></textarea>
+      <input type="submit" value="add" class="btn btn-primary" style="margin: 10px 0"/>
+    </div>
+  </form>
+</div>
