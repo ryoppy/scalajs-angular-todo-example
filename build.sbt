@@ -25,23 +25,23 @@ lazy val app = crossProject.in(file("."))
   )
   .jvmConfigure(_.enablePlugins(PlayScala))
   .jsSettings(
-    skip in packageJSDependencies := false,
-    persistLauncher in Compile := true,
+    emitSourceMaps := false,
+    persistLauncher := true,
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "0.9.0",
       "biz.enef" %%% "scalajs-angulate" % "0.2.4"
     ),
-    jsDependencies += "org.webjars" % "angularjs" % "1.5.3" / "1.5.3/angular.js",
-    mainClass in(Compile, run) := Some("app.Bootstrap")
+    jsDependencies ++= Seq(
+      "org.webjars.bower" % "angular" % "1.5.3" / "1.5.3/angular.js",
+      "org.webjars.bower" % "angular-route" % "1.5.3" / "1.5.3/angular-route.js"
+    )
   )
   .configure { p =>
-    val outputSettings = Seq(fastOptJS, fullOptJS, packageJSDependencies).map { packageJSKey =>
+    val outputSettings = Seq(fastOptJS, fullOptJS, packageJSDependencies, packageScalaJSLauncher).map { packageJSKey =>
       crossTarget in(p.js, Compile, packageJSKey) := (baseDirectory in Compile).value / "public" / "javascripts"
     }
     p.jvmSettings(outputSettings: _*)
   }
-
-
 
 lazy val jvm = app.jvm
 lazy val js = app.js
