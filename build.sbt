@@ -12,15 +12,9 @@ lazy val app = crossProject.in(file("."))
     version := "1.0",
     scalaVersion := "2.11.8",
     libraryDependencies ++= Seq(
-      "io.circe" %% "circe-core" % "0.3.0",
-      "io.circe" %% "circe-generic" % "0.3.0",
-      "io.circe" %% "circe-parser" % "0.3.0",
-      "io.circe" %% "circe-core_sjs0.6" % "0.3.0",
-      "io.circe" %% "circe-generic_sjs0.6" % "0.3.0",
-      "io.circe" %% "circe-parser_sjs0.6" % "0.3.0",
-      "io.circe" %% "circe-scalajs_sjs0.6" % "0.3.0",
-      "com.chuusai" %% "shapeless" % "2.3.0",
-      "com.chuusai" %% "shapeless_sjs0.6" % "2.3.0"
+      "io.circe" %%% "circe-core" % "0.3.0",
+      "io.circe" %%% "circe-generic" % "0.3.0",
+      "io.circe" %%% "circe-parser" % "0.3.0"
     )
   )
   .jvmConfigure(_.enablePlugins(PlayScala))
@@ -28,7 +22,7 @@ lazy val app = crossProject.in(file("."))
     emitSourceMaps := false,
     persistLauncher := true,
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.9.0",
+      "org.scala-js" %%% "scalajs-dom" % "0.8.0",
       "biz.enef" %%% "scalajs-angulate" % "0.2.4"
     ),
     jsDependencies ++= Seq(
