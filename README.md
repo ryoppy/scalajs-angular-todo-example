@@ -1,3 +1,5 @@
+[![Travis CI](https://travis-ci.org/ryoppy/scalajs-angular-todo-example.svg?branch=master)](https://travis-ci.org/ryoppy/scalajs-angular-todo-example)
+
 # scalajs-angular-todo-example
 
 ```
