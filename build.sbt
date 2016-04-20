@@ -17,6 +17,9 @@ lazy val app = crossProject.in(file("."))
       "io.circe" %%% "circe-parser" % "0.3.0"
     )
   )
+  .jvmSettings(
+    libraryDependencies += "org.scala-js" %% "scalajs-stubs" % scalaJSVersion % "provided"
+  )
   .jvmConfigure(_.enablePlugins(PlayScala))
   .jsSettings(
     emitSourceMaps := false,
